@@ -8,7 +8,7 @@ namespace Labs
 {
     internal class Task5_1
     {
-        public static void Main()
+        public static void Run()
         {
             string b = "5";
             while (true)
