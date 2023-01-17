@@ -1,29 +1,42 @@
-﻿namespace Labs
+namespace task2
 {
-    internal class Task5_2
+    internal class task2
     {
-        static void Run()
+        static void Main(string[] args)
         {
-            string number = Console.ReadLine();
-            CheckNumber(number);
-        }
-        static void CheckNumber(string number)
-        {
-            int sum = 0;
-            if (true)
-            {
-                foreach (char c in number)
-                {
-                    sum += c - '0';
-                }
-                Console.WriteLine(sum);
+            string number = Console.ReadLine().Replace("-", "");
 
+            if (CheckingNumber(number))
+            {
+                Console.WriteLine(Sum(number));
             }
             else
             {
-                Console.WriteLine("Невозможно");
+                Console.WriteLine("Not a number!");
+            }
+        }
+
+        static bool CheckingNumber(string n)
+        {
+            bool isNumber = true;
+
+            foreach (char s in n)
+            {
+                if (!char.IsDigit(s))
+                    return false;
             }
 
+            return isNumber;
+        }
+
+        static double Sum(string n)
+        {
+            double sum = 0;
+
+            foreach (char s in n)
+                sum += char.GetNumericValue(s);
+
+            return sum;
         }
     }
 }
